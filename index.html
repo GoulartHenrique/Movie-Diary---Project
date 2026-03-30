@@ -16,14 +16,7 @@
       class="fixed top-0 left-0 right-0 z-50 px-6 py-4 flex items-center justify-between"
     >
       <a href="index.html" class="flex items-center gap-2">
-        <span
-          style="
-            font-family: &quot;Playfair Display&quot;, serif;
-            font-size: 1.3rem;
-            color: #e8b86d;
-          "
-          >🎬 Movie Diary</span
-        >
+        <span class="logo">🎬 Movie Diary</span>
       </a>
       <div class="flex items-center gap-6">
         <a href="index.html" class="nav-link active text-sm font-medium"
@@ -38,11 +31,58 @@
     </nav>
 
     <!-- HERO + SEARCH (FR010) -->
+    <div class="pt-28 pb-10 px-6 max-w-3xl mx-auto text-center">
+      <h1 class="text-4xl md:text-5xl mb-3" style="color: #e8b86d">
+        Your Movie World
+      </h1>
+      <p class="text-gray-400 text-base mb-8">
+        Find popular movies and create your personal journal.
+      </p>
+
+      <form id="search-form" class="flex gap-3 justify-center">
+        <input
+          id="search-input"
+          type="text"
+          placeholder="Search for a movie…"
+          class="search-bar px-4 py-3 flex-1 max-w-sm text-sm"
+        />
+        <button type="submit" class="search-btn text-sm">Search</button>
+      </form>
+    </div>
 
     <!-- POPULAR MOVIES SECTION (FR009 + FR011) -->
+    <main class="px-6 pb-16 max-w-7xl mx-auto">
+      <h2 class="text-4xl mb-6" style="color: #e8b86d">Popular Right Now</h2>
+
+      <div
+        id="movies-grid"
+        class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5"
+      ></div>
+
+      <p
+        id="error-msg"
+        class="hidden text-center text-red-400 mt-8 text-sm"
+      ></p>
+    </main>
 
     <!-- SEARCH DIALOG (FR010) -->
-
+    <dialog id="search-dialog">
+      <div class="dialog-header flex items-center justify-between gap-4">
+        <div>
+          <h3 class="text-lg" id="dialog-title">Results</h3>
+          <p class="text-xs text-gray-400 mt-0.5" id="dialog-subtitle"></p>
+        </div>
+        <button
+          class="dialog-close"
+          onclick="document.getElementById('search-dialog').close()"
+        >
+          ✕
+        </button>
+      </div>
+      <div class="dialog-body">
+        <div id="dialog-results" class="flex flex-col gap-3"></div>
+      </div>
+    </dialog>
     <script src="src/main.js"></script>
   </body>
 </html>
